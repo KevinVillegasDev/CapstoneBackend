@@ -6,9 +6,9 @@ from rest_framework import status
 from django.http.response import Http404
 # Create your views here.
 
-class RecipeFunctions(APIView):
+class RecipeList(APIView):
     
-    def getAll(self, request):
+    def get(self, request):
         recipe = Recipe.objects.all()
         serializer = RecipeSerializer(recipe, many=True)
         return Response(serializer.data)
@@ -20,6 +20,8 @@ class RecipeFunctions(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+    
+class RecipeDetail(APIView):
     def get_object(self, pk):
         try:
             return Recipe.objects.get(pk=pk)

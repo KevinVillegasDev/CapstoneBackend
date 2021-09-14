@@ -10,6 +10,6 @@ class RecipeIngredient(models.Model):
     measurement = models.ForeignKey('measurements.Measurement', null=True, blank=True, on_delete=CASCADE)
     
     def __str__(self):
-        return self.name
+        return self.quantity
     
     

@@ -7,9 +7,9 @@ from django.http.response import Http404
 
 # Create your views here.
 
-class CategoryFunction(APIView):
+class CategoryList(APIView):
     
-    def getAll(self, request):
+    def get(self, request):
         category = Category.objects.all()
         serializer = CategorySerializer(category, many=True)
         return Response(serializer.data)
@@ -21,6 +21,8 @@ class CategoryFunction(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+class CategoryDetail(APIView):
+
     def get_object(self, pk):
         try:
             return Category.objects.get(pk=pk)

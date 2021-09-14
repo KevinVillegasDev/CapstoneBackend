@@ -7,9 +7,9 @@ from django.http.response import Http404
 
 # Create your views here.
 
-class LikedRecipeFunction(APIView):
+class LikedRecipeList(APIView):
     
-    def getAll(self, request):
+    def get(self, request):
         likedRecipe = LikedRecipe.objects.all()
         serializer = LikedRecipeSerializer(likedRecipe, many=True)
         return Response(serializer.data)
@@ -20,6 +20,8 @@ class LikedRecipeFunction(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+class LikedRecipeDetail(APIView):
     
     def get_object(self, pk):
         try:

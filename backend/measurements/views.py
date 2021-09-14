@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 # Create your views here.
 
-class MeasurementFunction(APIView):
+class MeasurementList(APIView):
     
     def get(self, request):
         measurement = Measurement.objects.all()

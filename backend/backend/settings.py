@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'likedRecipes',
     'measurements',
     'recipeIngredients',
-    'users',
     'corsheaders',
     'authentication.apps.AuthenticationConfig'
     
@@ -88,7 +87,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mysql.connector.django',
-        'NAME': 'recipe_database',
+        'NAME': 'recipes_database',
         'USER': 'root',
         'PASSWORD': 'Password',
         'HOST': '127.0.0.1',
